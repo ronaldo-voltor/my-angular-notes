@@ -1,0 +1,30 @@
+<div class="p-4 border rounded-xl shadow-sm bg-white space-y-3">
+  <h3 class="text-xl font-semibold text-gray-800">Agregar: {{ name() }}</h3>
+
+  <input
+    type="text"
+    placeholder="Nombre"
+    class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+    [value]="name()"
+    (input)="name.set(txtName.value)"
+    #txtName
+  />
+  <!-- usamos llaves[] para asignar atributos -->
+
+  <h3 class="text-xl font-semibold text-gray-800">Poder: {{ power() }}</h3>
+  <input
+    type="number"
+    placeholder="Poder"
+    class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+    [value]="power()"
+    (input)="power.set(txtPower.valueAsNumber)"
+    #txtPower
+  />
+
+  <button
+    class="px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition"
+    (click)="addCharacter()"
+  >
+    Agregar
+  </button>
+</div>

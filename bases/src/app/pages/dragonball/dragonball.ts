@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 interface Character {
   id: number;
@@ -10,7 +9,6 @@ interface Character {
 @Component({
   templateUrl: './dragonball.html',
   styleUrl: './dragonball.scss',
-  imports: [CommonModule],
 })
 export class Dragonball {
   name = signal('Gohan');

@@ -1,0 +1,21 @@
+<h3 class="text-lg font-semibold text-gray-800 my-4">{{ listName() }}</h3>
+<ul class="space-y-2">
+  @for (character of characters(); track character.id; let idx = $index) { @if (character.power >
+  1000) {
+  <li class="flex justify-between p-2 border rounded-md">
+    <span>{{ idx + 1 }} - {{ character.name }}</span>
+    <strong
+      class="power-text"
+      class="font-semibold text-gray-500 transition"
+      [class.text-red-600]="character.power > 9000"
+      [class.font-bold]="character.power > 9000"
+      [class.drop-shadow-lg]="character.power > 9000"
+    >
+      <!-- [ngClass]="{ 'over9000': character.power > 9000 }"> -->
+      ({{ character.power }})
+    </strong>
+  </li>
+  } @else {
+  <li class="text-gray-400 italic">Aquí no hay nadie</li>
+  } }
+</ul>
