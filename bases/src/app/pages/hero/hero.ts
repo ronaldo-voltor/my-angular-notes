@@ -10,6 +10,7 @@ export class Hero {
   name = signal('Ironman');
   age = signal(45);
   heroDescription = computed(() => `${this.name()} - ${this.age()} años`);
+  //uppercaseName = computed(() => this.name().toUpperCase());
 
   // Método para cambiar el nombre
   changeName = (newName: string) => this.name.set(newName);
