@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   templateUrl: './hero.html',
+  imports: [UpperCasePipe],
 })
 export class Hero {
   // Estado reactivo usando signals
   name = signal('Ironman');
   age = signal(45);
+  heroDescription = computed(() => `${this.name()} - ${this.age()} años`);
 
   // Método para cambiar el nombre
   changeName = (newName: string) => this.name.set(newName);
@@ -14,8 +17,6 @@ export class Hero {
   // Método para cambiar la edad
   changeAge = (newAge: number) => this.age.set(newAge);
 
-  // Método para obtener una descripción completa del héroe
-  getHeroDescription = () => `${this.name()} - ${this.age()} años`;
 
   // Metodo para cambiar Hero
   changeHero = () => {
