@@ -1,0 +1,104 @@
+<h1 class="text-4xl font-bold text-emerald-600 mb-6 text-center">Dragonball Page</h1>
+
+<section class="max-w-3xl mx-auto grid gap-8 p-6">
+  <!-- Formulario -->
+  <div class="p-4 border rounded-xl shadow-sm bg-white space-y-3">
+    <h3 class="text-xl font-semibold text-gray-800">Agregar: {{ name() }}</h3>
+    <input
+      type="text"
+      placeholder="Nombre"
+      class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+      [value]="name()"
+      (input)="name.set(txtName.value)"
+      #txtName
+    />
+
+    <h3 class="text-xl font-semibold text-gray-800">Poder: {{ power() }}</h3>
+    <input
+      type="number"
+      placeholder="Poder"
+      class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+      [value]="power()"
+      (input)="power.set(txtPower.valueAsNumber)"
+      #txtPower
+    />
+
+    <button
+      class="px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition"
+      (click)="openModal()"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <!-- Listas -->
+  <div class="p-4 border rounded-xl shadow-sm bg-white space-y-4">
+    <h3 class="text-lg font-semibold text-gray-800">Listado fuertes</h3>
+
+    <ul class="space-y-2">
+      @for (character of characters(); track character.id; let idx = $index) { @if (character.power
+      > 1000) {
+      <li class="flex justify-between p-2 border rounded-md">
+        <span>{{ idx + 1 }} - {{ character.name }}</span>
+        <strong
+          class="power-text"
+          class="font-semibold text-gray-500 transition"
+          [class.text-red-600]="character.power > 9000"
+          [class.font-bold]="character.power > 9000"
+          [class.drop-shadow-lg]="character.power > 9000"
+        >
+          <!-- [ngClass]="{ 'over9000': character.power > 9000 }"> -->
+          ({{ character.power }})
+        </strong>
+      </li>
+      } @else {
+      <li class="text-gray-400 italic">Aquí no hay nadie</li>
+      } }
+    </ul>
+  </div>
+</section>
+
+@if (modalOpen()) {
+  <div class="fixed inset-0 bg-black/10 backdrop-blur-xs flex items-center justify-center">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-80 space-y-4 animate-fade-in">
+
+      <h2 class="text-xl font-bold text-emerald-600">Nuevo Personaje</h2>
+
+      <input
+        type="text"
+        placeholder="Nombre"
+        class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+        [value]="name()"
+        (input)="name.set(txtName.value)"
+        #txtName
+      />
+
+      <input
+        type="number"
+        placeholder="Poder"
+        class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
+        [value]="power()"
+        (input)="power.set(txtPower.valueAsNumber)"
+        #txtPower
+      />
+
+      <div class="flex justify-end gap-2">
+        <button
+          class="px-3 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+          (click)="closeModal()"
+        >
+          Cancelar
+        </button>
+
+        <button
+          class="px-3 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600"
+          (click)="addCharacter()"
+        >
+          Guardar
+        </button>
+      </div>
+
+    </div>
+  </div>
+}
+
