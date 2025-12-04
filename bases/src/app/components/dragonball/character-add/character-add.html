@@ -1,28 +1,35 @@
-<div class="p-4 border rounded-xl shadow-sm bg-white space-y-3">
-  <h3 class="text-xl font-semibold text-gray-800">Agregar: {{ name() }}</h3>
+<div class="p-6 border rounded-xl shadow-sm bg-white space-y-5">
+  <h3 class="text-2xl font-semibold text-emerald-600 border-b pb-2">Agregar: {{ name() }}</h3>
 
-  <input
-    type="text"
-    placeholder="Nombre"
-    class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
-    [value]="name()"
-    (input)="name.set(txtName.value)"
-    #txtName
-  />
   <!-- usamos llaves[] para asignar atributos -->
+  <div class="space-y-1">
+    <label class="text-sm font-medium text-gray-600">Nombre</label>
 
-  <h3 class="text-xl font-semibold text-gray-800">Poder: {{ power() }}</h3>
-  <input
-    type="number"
-    placeholder="Poder"
-    class="w-full p-2 border rounded-md focus:ring-2 focus:ring-emerald-300 outline-none"
-    [value]="power()"
-    (input)="power.set(txtPower.valueAsNumber)"
-    #txtPower
-  />
+    <input
+      type="text"
+      placeholder="Nombre"
+      class="w-full p-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-emerald-300 outline-none"
+      [value]="name()"
+      (input)="name.set(txtName.value)"
+      #txtName
+    />
+  </div>
+
+  <div class="space-y-1">
+    <label class="text-sm font-medium text-gray-600">Poder: {{ power() }}</label>
+
+    <input
+      type="number"
+      placeholder="Poder"
+      class="w-full p-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-emerald-300 outline-none"
+      [value]="power()"
+      (input)="power.set(txtPower.valueAsNumber)"
+      #txtPower
+    />
+  </div>
 
   <button
-    class="px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition"
+    class="w-full py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition"
     (click)="addCharacter()"
   >
     Agregar

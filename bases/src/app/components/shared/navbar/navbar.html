@@ -1,31 +1,33 @@
-<nav class="flex justify-center gap-6 py-4 bg-white shadow-sm border-b-smoke">
+<nav class="flex justify-center gap-4 py-4 bg-white shadow-sm border-b border-gray-200">
   <a
     routerLink="/"
-    routerLinkActive="text-green-600 font-semibold"
+    routerLinkActive="text-emerald-600 bg-emerald-100 font-semibold"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="text-gray-600 hover:text-emerald-500 transition"
+    class="px-3 py-1 rounded-lg text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition"
   >
     Contador
   </a>
 
   <a
-    [routerLink]="['/hero']"
-    routerLinkActive="text-green-600 font-semibold"
-    class="text-gray-600 hover:text-emerald-500 transition"
+    routerLink="/hero"
+    routerLinkActive="text-emerald-600 bg-emerald-100 font-semibold"
+    class="px-3 py-1 rounded-lg text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition"
   >
     Hero
   </a>
+
   <a
-    [routerLink]="['/dragonball']"
-    routerLinkActive="text-green-600 font-semibold"
-    class="text-gray-600 hover:text-emerald-500 transition"
+    routerLink="/dragonball"
+    routerLinkActive="text-emerald-600 bg-emerald-100 font-semibold"
+    class="px-3 py-1 rounded-lg text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition"
   >
     Dragonball
   </a>
+
   <a
-    [routerLink]="['/dragonball-super']"
-    routerLinkActive="text-green-600 font-semibold"
-    class="text-gray-600 hover:text-emerald-500 transition"
+    routerLink="/dragonball-super"
+    routerLinkActive="text-emerald-600 bg-emerald-100 font-semibold"
+    class="px-3 py-1 rounded-lg text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition"
   >
     Dragonball Super
   </a>

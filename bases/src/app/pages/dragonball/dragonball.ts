@@ -8,7 +8,6 @@ interface Character {
 
 @Component({
   templateUrl: './dragonball.html',
-  styleUrl: './dragonball.scss',
 })
 export class Dragonball {
   name = signal('Gohan');
