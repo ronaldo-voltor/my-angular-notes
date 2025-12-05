@@ -1,1 +1,17 @@
-<p>search-page works!</p>
+<h2 class="text-3xl font-bold mt-6 text-cyan-600 tracking-wide text-center">🔍 Buscar Gifs</h2>
+
+<h3 class="text-sm text-gray-500 text-center mb-4">Busca gifs por nombre, descripción o tags</h3>
+
+<section class="flex flex-col gap-4 max-w-md mx-auto">
+  <input
+    type="text"
+    placeholder="Escribe tu búsqueda..."
+    class="mt-2 border border-gray-300 rounded-lg p-3 text-gray-700 shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-500 outline-none placeholder-gray-400 transition"
+    (keyup.enter)="onSearch(txtSearch.value)"
+    #txtSearch
+  />
+</section>
+
+<section class="py-6 border-t mt-6 max-w-4xl mx-auto text-center">
+  <gif-list [gifs]="gifs()" />
+</section>
